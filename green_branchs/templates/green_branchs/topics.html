@@ -1,0 +1,23 @@
+{% extends "green_branchs/base.html" %}
+
+{% block header %}
+  <h1>Расписание</h1>
+{% endblock header %}
+
+{% block content %}
+
+<ul>
+{% for topic in topics %}
+<li>
+  <h3>
+	<a href="{% url 'green_branchs:topic' topic.id %}">{{ topic }}</a>
+  </h3>
+</li>
+{% empty %}
+<li>Расписания пока нет.</li>
+{% endfor %}
+</ul>
+
+  <h3><a href="{% url 'green_branchs:new_topic' %}">Добавить расписание</h3>
+
+{% endblock content %}

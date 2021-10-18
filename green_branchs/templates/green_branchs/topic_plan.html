@@ -1,0 +1,20 @@
+{% extends 'green_branchs/base.html' %}
+
+{% block header %}
+  <h2>{{ topic_plan }}</h2>
+{% endblock header %}
+
+{% block content %}
+
+{% for entry_plan in entries_plan %}
+  <div class="panel panel-default">
+    <div class="panel-body">
+	  <img src="{{ entry_plan.cover.url }}">
+	  {{ entry_plan.text|linebreaks }}
+    </div>
+  </div> <!-- panel -->
+{% empty %}
+  Этот раздел не описан.
+{% endfor %}
+
+{% endblock content %}

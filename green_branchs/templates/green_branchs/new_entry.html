@@ -1,0 +1,14 @@
+{% extends "green_branchs/base.html" %}
+
+{% block content %}
+
+  <p><a href="{% url 'green_branchs:topic' topic.id %}">{{ topic }}</a></p>
+
+  <p>Добавить новую запись:</p>
+  <form action="{% url 'green_branchs:new_entry' topic.id %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit'>Добавить запись</button>
+  </form>
+  
+{% endblock content %}

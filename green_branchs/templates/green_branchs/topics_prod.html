@@ -1,0 +1,22 @@
+{% extends "green_branchs/base.html" %}
+
+{% block header %}
+  <h1>Продукты</h1>
+{% endblock header %}
+
+{% block content %}
+
+<ul>
+{% for topic_prod in topics_prod %}
+  <div class="panel panel-default">
+    <div class="panel-body">
+	  <img src="{{ topic_prod.cover.url }}">
+	  <a href="{% url 'green_branchs:topic_prod' topic_prod.id %}">{{ topic_prod }}</a>
+    </div>
+  </div> <!-- panel -->
+{% empty %}
+<li>Продуктов пока нет.</li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

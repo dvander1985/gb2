@@ -1,0 +1,22 @@
+{% extends "green_branchs/base.html" %}
+
+{% block header %}
+  <h1>Рецепты</h1>
+{% endblock header %}
+
+{% block content %}
+
+<ul>
+{% for topic_rec in topics_rec %}
+  <div class="panel panel-default">
+    <div class="panel-body">
+	<img src="{{ topic_rec.cover.url }}">
+	<a href="{% url 'green_branchs:topic_rec' topic_rec.id %}">{{ topic_rec }}</a>
+    </div>
+  </div> <!-- panel -->
+{% empty %}
+<li>Рецептов пока нет.</li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

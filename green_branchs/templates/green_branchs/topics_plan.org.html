@@ -1,0 +1,17 @@
+{% extends "green_branchs/base.html" %}
+
+{% block content %}
+
+  <p>Планы питания:</p>
+  
+  <ul>
+    {% for topic_plan in topics_plan %}
+      <li>
+        <a href="{% url 'green_branchs:topic_plan' topic_plan.id %}">{{ topic_plan }}</a>
+	  </li>
+    {% empty %}
+      <li>Диеты еще не представлены.</li>
+    {% endfor %}
+  </ul>
+  
+{% endblock content %}

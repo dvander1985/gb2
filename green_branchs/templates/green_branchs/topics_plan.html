@@ -1,0 +1,22 @@
+{% extends "green_branchs/base.html" %}
+
+{% block header %}
+  <h1>Планы питания</h1>
+{% endblock header %}
+
+{% block content %}
+
+<ul>
+{% for topic_plan in topics_plan %}
+  <div class="panel panel-default">
+    <div class="panel-body">
+	<img src="{{ topic_plan.cover.url }}">
+	<a href="{% url 'green_branchs:topic_plan' topic_plan.id %}">{{ topic_plan }}</a>
+    </div>
+  </div> <!-- panel -->
+{% empty %}
+<li>Планов питания пока нет.</li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

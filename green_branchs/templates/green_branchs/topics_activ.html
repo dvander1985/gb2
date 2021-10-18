@@ -1,0 +1,22 @@
+{% extends "green_branchs/base.html" %}
+
+{% block header %}
+  <h1>Тренировки</h1>
+{% endblock header %}
+
+{% block content %}
+
+<ul>
+{% for topic_activ in topics_activ %}
+  <div class="panel panel-default">
+    <div class="panel-body">
+	<img src="{{ topic_activ.cover.url }}">
+	<a href="{% url 'green_branchs:topic_activ' topic_activ.id %}">{{ topic_activ }}</a>
+    </div>
+  </div> <!-- panel -->
+{% empty %}
+<li>Тренировок пока нет.</li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

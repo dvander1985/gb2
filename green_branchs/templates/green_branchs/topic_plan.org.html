@@ -1,0 +1,20 @@
+{% extends "green_branchs/base.html" %}
+
+{% block content %}
+
+  <p>План питания: {{ topic_plan }}</p>
+  
+  <p>Подробнее:</p>
+    <ul>
+     {% for entry_plan in entries_plan %}
+	   <li>
+		  <p>{{ entry_plan.text|linebreaks }}</p>
+	   </li>
+	{% empty %}
+	   <li>
+	     Этот раздел не описан.  
+	   </li>
+    {% endfor %}
+  </ul>
+  
+{% endblock content %}
